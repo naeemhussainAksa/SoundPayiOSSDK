@@ -22,10 +22,10 @@ Pod::Spec.new do |s|
     :tag => "#{s.version}"
     }
 
-    s.source_files       = 'Resources/**/*.{h,m}' 
-    s.source_files       = 'Resources/Sources/ggwave-iOS/**/*.{h, txt, mm}'
-    s.source_files       = 'Resources/Sources/ggwave-iOS/include/ggwave/**/*.{h}'
-    s.source_files       = 'Resources/Sources/ggwave-iOS/reed-solomon/**/*.{hpp}'
+    s.source_files       = 'SoundPayiOSSDK/**/*.{h,m}' 
+    s.source_files       = 'SoundPayiOSSDK/ggwave-iOS/**/*.{h, txt, mm}'
+    s.source_files       = 'SoundPayiOSSDK/ggwave-iOS/include/ggwave/**/*.{h}'
+    s.source_files       = 'SoundPayiOSSDK/ggwave-iOS/reed-solomon/**/*.{hpp}'
 
     
     s.swift_version      = "4.2"

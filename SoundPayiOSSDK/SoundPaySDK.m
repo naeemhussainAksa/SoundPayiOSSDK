@@ -7,7 +7,6 @@
 
 #import "SoundPaySDK.h"
 #import "ggwave.h"
-#import "SoundPayImplementation-Swift.h"
 
 #define NUM_BYTES_PER_BUFFER 16*1024
 
@@ -238,11 +237,11 @@ void AudioOutputCallback(void * inUserData,
         const char * payload = message;
         const int len = (int) strlen(payload);
 
-        const int n = ggwave_encode(stateOut.ggwaveId, payload, len, GGWAVE_PROTOCOL_AUDIBLE_FAST, 10, NULL, 1);
+        const int n = ggwave_encode(stateOut.ggwaveId, payload, len, GGWAVE_PROTOCOL_ULTRASOUND_FAST, 10, NULL, 1);
 
         stateOut.waveform = [NSMutableData dataWithLength:sizeof(char)*n];
 
-        const int ret = ggwave_encode(stateOut.ggwaveId, payload, len, GGWAVE_PROTOCOL_AUDIBLE_FAST, 10, [stateOut.waveform mutableBytes], 0);
+        const int ret = ggwave_encode(stateOut.ggwaveId, payload, len, GGWAVE_PROTOCOL_ULTRASOUND_FAST, 10, [stateOut.waveform mutableBytes], 0);
 
         if (ret != n) {
             printf("failed to encode the message '%s', n = %d, ret = %d\n", payload, n, ret);
