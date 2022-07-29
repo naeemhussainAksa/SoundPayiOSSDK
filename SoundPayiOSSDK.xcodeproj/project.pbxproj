@@ -46,8 +46,8 @@
 		3D02C0E6289269B400564F6C /* rs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rs.hpp; sourceTree = "<group>"; };
 		3D02C0E7289269B400564F6C /* poly.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = poly.hpp; sourceTree = "<group>"; };
 		3D02C0E8289269B400564F6C /* resampler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resampler.h; sourceTree = "<group>"; };
-		3D260F0128913AA10014C671 /* SoundPayiOSSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SoundPayiOSSDK.framework; path = "/Users/sidrajabeen/Documents/Git/SoundPayiOSSDK/build/Debug-iphoneos/SoundPayiOSSDK.framework"; sourceTree = "<absolute>"; };
 		3D260F0428913AA10014C671 /* SoundPayiOSSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundPayiOSSDK.h; sourceTree = "<group>"; };
+		3D5BA6852893FF2B008FCF93 /* SoundPayiOSSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SoundPayiOSSDK.framework; path = "/Users/sidrajabeen/Documents/Git/SoundPayiOSSDK/build/Debug-iphoneos/SoundPayiOSSDK.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,18 +101,10 @@
 			path = "reed-solomon";
 			sourceTree = "<group>";
 		};
-		3D02C1142892C15500564F6C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		3D260EF728913AA10014C671 = {
 			isa = PBXGroup;
 			children = (
 				3D260F0328913AA10014C671 /* SoundPayiOSSDK */,
-				3D02C1142892C15500564F6C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,16 +115,8 @@
 				3D02C0D92892697000564F6C /* SoundPaySDK.h */,
 				3D02C0D82892696F00564F6C /* SoundPaySDK.m */,
 				3D02C0DC289269B400564F6C /* ggwave-iOS */,
-				3D589A532893F4FE007037E1 /* Submodules */,
 			);
 			path = SoundPayiOSSDK;
-			sourceTree = "<group>";
-		};
-		3D589A532893F4FE007037E1 /* Submodules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Submodules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,7 +156,7 @@
 			);
 			name = SoundPayiOSSDK;
 			productName = SoundPayiOSSDK;
-			productReference = 3D260F0128913AA10014C671 /* SoundPayiOSSDK.framework */;
+			productReference = 3D5BA6852893FF2B008FCF93 /* SoundPayiOSSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
