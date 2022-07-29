@@ -22,8 +22,6 @@ typedef struct
 {
     int ggwaveId;
     bool isCapturing;
-    UILabel * labelReceived;
-    
     AudioQueueRef queue;
     AudioStreamBasicDescription dataFormat;
     AudioQueueBufferRef buffers[NUM_BUFFERS];
@@ -36,7 +34,6 @@ typedef struct
     int offset;
     int totalBytes;
     NSMutableData * waveform;
-    UILabel * labelStatus;
     
     AudioQueueRef queue;
     AudioStreamBasicDescription dataFormat;
@@ -50,14 +47,10 @@ typedef struct
     StateOut stateOut;
 }
 
-//@property (nonatomic, weak) id <SoundPaySdkDelegate> delegate;
-//+ (SoundPaySDK*)sharedInstance;
-//- (void)LoadData;
 - (void)stopPlayback;
 - (void)startPlayback: (const char *) message;
 - (void) stopCapturing;
 - (void)startCapture;
-//- (void)config;
 
 
 @end

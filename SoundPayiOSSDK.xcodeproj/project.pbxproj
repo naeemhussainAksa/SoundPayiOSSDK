@@ -21,6 +21,19 @@
 		3D260F0728913AA10014C671 /* SoundPayiOSSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D260F0428913AA10014C671 /* SoundPayiOSSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3D02C1172892C15500564F6C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3D02C0D82892696F00564F6C /* SoundPaySDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundPaySDK.m; sourceTree = "<group>"; };
 		3D02C0D92892697000564F6C /* SoundPaySDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPaySDK.h; sourceTree = "<group>"; };
@@ -33,7 +46,7 @@
 		3D02C0E6289269B400564F6C /* rs.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rs.hpp; sourceTree = "<group>"; };
 		3D02C0E7289269B400564F6C /* poly.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = poly.hpp; sourceTree = "<group>"; };
 		3D02C0E8289269B400564F6C /* resampler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resampler.h; sourceTree = "<group>"; };
-		3D260F0128913AA10014C671 /* SoundPayiOSSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SoundPayiOSSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D260F0128913AA10014C671 /* SoundPayiOSSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SoundPayiOSSDK.framework; path = "/Users/sidrajabeen/Documents/Git/SoundPayiOSSDK/build/Debug-iphoneos/SoundPayiOSSDK.framework"; sourceTree = "<absolute>"; };
 		3D260F0428913AA10014C671 /* SoundPayiOSSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundPayiOSSDK.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,20 +101,19 @@
 			path = "reed-solomon";
 			sourceTree = "<group>";
 		};
+		3D02C1142892C15500564F6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3D260EF728913AA10014C671 = {
 			isa = PBXGroup;
 			children = (
 				3D260F0328913AA10014C671 /* SoundPayiOSSDK */,
-				3D260F0228913AA10014C671 /* Products */,
+				3D02C1142892C15500564F6C /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		3D260F0228913AA10014C671 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3D260F0128913AA10014C671 /* SoundPayiOSSDK.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		3D260F0328913AA10014C671 /* SoundPayiOSSDK */ = {
@@ -111,8 +123,16 @@
 				3D02C0D92892697000564F6C /* SoundPaySDK.h */,
 				3D02C0D82892696F00564F6C /* SoundPaySDK.m */,
 				3D02C0DC289269B400564F6C /* ggwave-iOS */,
+				3D589A532893F4FE007037E1 /* Submodules */,
 			);
 			path = SoundPayiOSSDK;
+			sourceTree = "<group>";
+		};
+		3D589A532893F4FE007037E1 /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Submodules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +164,7 @@
 				3D260EFD28913AA10014C671 /* Sources */,
 				3D260EFE28913AA10014C671 /* Frameworks */,
 				3D260EFF28913AA10014C671 /* Resources */,
+				3D02C1172892C15500564F6C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,7 +198,7 @@
 				Base,
 			);
 			mainGroup = 3D260EF728913AA10014C671;
-			productRefGroup = 3D260F0228913AA10014C671 /* Products */;
+			productRefGroup = 3D260EF728913AA10014C671;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

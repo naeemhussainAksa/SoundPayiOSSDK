@@ -1,0 +1,3 @@
+[submodule "SoundPayiOSSDK/Products/SoundPayiOSSDK"]
+	path = SoundPayiOSSDK/Products/SoundPayiOSSDK
+	url = https://github.com/naeemhussainAksa/SoundPayiOSSDK.git
