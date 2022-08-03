@@ -7,6 +7,7 @@
 
 #import "SoundPaySDK.h"
 #import "ggwave.h"
+#import "SoundPayiOSSDK-Swift.h"
 
 #define NUM_BYTES_PER_BUFFER 16*1024
 
@@ -52,7 +53,6 @@ void AudioOutputCallback(void * inUserData,
 - (instancetype)init
 {
     self = [super init];
-    
     NSLog(@"Initializer called ... ");
     [self setupAudioFormat:&stateInp.dataFormat];
     [self setupAudioFormat:&stateOut.dataFormat];
@@ -88,74 +88,6 @@ void AudioOutputCallback(void * inUserData,
     
     return self;
 }
-
-//- (void)LoadData
-//{
-//    [self setupAudioFormat:&stateInp.dataFormat];
-//    [self setupAudioFormat:&stateOut.dataFormat];
-//
-//    // initialize the GGWave instances:
-//
-//    // RX
-//    {
-//        ggwave_Parameters parameters = ggwave_getDefaultParameters();
-//
-//        parameters.sampleFormatInp = GGWAVE_SAMPLE_FORMAT_I16;
-//        parameters.sampleFormatOut = GGWAVE_SAMPLE_FORMAT_I16;
-//
-//        stateInp.ggwaveId = ggwave_init(parameters);
-//
-//        printf("GGWave capture instance initialized - instance id = %d\n", stateInp.ggwaveId);
-//    }
-//
-//    // TX
-//    {
-//        ggwave_Parameters parameters = ggwave_getDefaultParameters();
-//
-//        parameters.sampleFormatInp = GGWAVE_SAMPLE_FORMAT_I16;
-//        parameters.sampleFormatOut = GGWAVE_SAMPLE_FORMAT_I16;
-//
-//        stateOut.ggwaveId = ggwave_init(parameters);
-//
-//        printf("GGWave playback instance initialized - instance id = %d\n", stateOut.ggwaveId);
-//    }
-//
-//    stateInp.sDelegate = delegate;
-//    stateOut.sDelegate = delegate;
-//}
-
-//- (void)config
-//{
-//
-//    [self setupAudioFormat:&stateInp.dataFormat];
-//    [self setupAudioFormat:&stateOut.dataFormat];
-//
-//    // initialize the GGWave instances:
-//
-//    // RX
-//    {
-//        ggwave_Parameters parameters = ggwave_getDefaultParameters();
-//
-//        parameters.sampleFormatInp = GGWAVE_SAMPLE_FORMAT_I16;
-//        parameters.sampleFormatOut = GGWAVE_SAMPLE_FORMAT_I16;
-//
-//        stateInp.ggwaveId = ggwave_init(parameters);
-//
-//        printf("GGWave capture instance initialized - instance id = %d\n", stateInp.ggwaveId);
-//    }
-//
-//    // TX
-//    {
-//        ggwave_Parameters parameters = ggwave_getDefaultParameters();
-//
-//        parameters.sampleFormatInp = GGWAVE_SAMPLE_FORMAT_I16;
-//        parameters.sampleFormatOut = GGWAVE_SAMPLE_FORMAT_I16;
-//
-//        stateOut.ggwaveId = ggwave_init(parameters);
-//
-//        printf("GGWave playback instance initialized - instance id = %d\n", stateOut.ggwaveId);
-//    }
-//}
 
 -(void) stopCapturing
 {
@@ -237,11 +169,11 @@ void AudioOutputCallback(void * inUserData,
         const char * payload = message;
         const int len = (int) strlen(payload);
 
-        const int n = ggwave_encode(stateOut.ggwaveId, payload, len, GGWAVE_PROTOCOL_AUDIBLE_FAST, 10, NULL, 1);
+        const int n = ggwave_encode(stateOut.ggwaveId, payload, len, GGWAVE_PROTOCOL_ULTRASOUND_FAST, 10, NULL, 1);
 
         stateOut.waveform = [NSMutableData dataWithLength:sizeof(char)*n];
 
-        const int ret = ggwave_encode(stateOut.ggwaveId, payload, len, GGWAVE_PROTOCOL_AUDIBLE_FAST, 10, [stateOut.waveform mutableBytes], 0);
+        const int ret = ggwave_encode(stateOut.ggwaveId, payload, len, GGWAVE_PROTOCOL_ULTRASOUND_FAST, 10, [stateOut.waveform mutableBytes], 0);
 
         if (ret != n) {
             printf("failed to encode the message '%s', n = %d, ret = %d\n", payload, n, ret);

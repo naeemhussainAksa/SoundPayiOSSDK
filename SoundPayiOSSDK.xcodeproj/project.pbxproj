@@ -19,6 +19,7 @@
 		3D02C0F0289269B400564F6C /* poly.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3D02C0E7289269B400564F6C /* poly.hpp */; };
 		3D02C0F1289269B400564F6C /* resampler.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D02C0E8289269B400564F6C /* resampler.h */; };
 		3D260F0728913AA10014C671 /* SoundPayiOSSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D260F0428913AA10014C671 /* SoundPayiOSSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DDB537E289A8EE800D79AF9 /* SoundPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDB537D289A8EE800D79AF9 /* SoundPay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,7 +48,9 @@
 		3D02C0E7289269B400564F6C /* poly.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = poly.hpp; sourceTree = "<group>"; };
 		3D02C0E8289269B400564F6C /* resampler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resampler.h; sourceTree = "<group>"; };
 		3D260F0428913AA10014C671 /* SoundPayiOSSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundPayiOSSDK.h; sourceTree = "<group>"; };
-		3D5BA6852893FF2B008FCF93 /* SoundPayiOSSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SoundPayiOSSDK.framework; path = "/Users/sidrajabeen/Documents/Git/SoundPayiOSSDK/build/Debug-iphoneos/SoundPayiOSSDK.framework"; sourceTree = "<absolute>"; };
+		3D8F614B289400F7004701C2 /* SoundPayiOSSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SoundPayiOSSDK.framework; path = "/Users/sidrajabeen/Documents/Git/SoundPayiOSSDK/build/Debug-iphoneos/SoundPayiOSSDK.framework"; sourceTree = "<absolute>"; };
+		3DDB536C289A817900D79AF9 /* SoundPayiOSSDK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoundPayiOSSDK-Bridging-Header.h"; sourceTree = "<group>"; };
+		3DDB537D289A8EE800D79AF9 /* SoundPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +115,10 @@
 			isa = PBXGroup;
 			children = (
 				3D260F0428913AA10014C671 /* SoundPayiOSSDK.h */,
+				3DDB537D289A8EE800D79AF9 /* SoundPay.swift */,
 				3D02C0D92892697000564F6C /* SoundPaySDK.h */,
 				3D02C0D82892696F00564F6C /* SoundPaySDK.m */,
+				3DDB536C289A817900D79AF9 /* SoundPayiOSSDK-Bridging-Header.h */,
 				3D02C0DC289269B400564F6C /* ggwave-iOS */,
 			);
 			path = SoundPayiOSSDK;
@@ -156,7 +161,7 @@
 			);
 			name = SoundPayiOSSDK;
 			productName = SoundPayiOSSDK;
-			productReference = 3D5BA6852893FF2B008FCF93 /* SoundPayiOSSDK.framework */;
+			productReference = 3D8F614B289400F7004701C2 /* SoundPayiOSSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -170,6 +175,7 @@
 				TargetAttributes = {
 					3D260F0028913AA10014C671 = {
 						CreatedOnToolsVersion = 13.3.1;
+						LastSwiftMigration = 1330;
 					};
 				};
 			};
@@ -207,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DDB537E289A8EE800D79AF9 /* SoundPay.swift in Sources */,
 				3D02C0EB289269B400564F6C /* ggwave.mm in Sources */,
 				3D02C0DA2892697000564F6C /* SoundPaySDK.m in Sources */,
 				3D02C0ED289269B400564F6C /* resampler.mm in Sources */,
@@ -335,6 +342,7 @@
 		3D260F0B28913AA10014C671 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -356,13 +364,18 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SoundPayiOSSDK/SoundPayiOSSDK/SoundPayiOSSDK-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "${PROJECT_DIR}/lib";
 			};
 			name = Debug;
 		};
 		3D260F0C28913AA10014C671 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -384,7 +397,10 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SoundPayiOSSDK/SoundPayiOSSDK/SoundPayiOSSDK-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "${PROJECT_DIR}/lib";
 			};
 			name = Release;
 		};

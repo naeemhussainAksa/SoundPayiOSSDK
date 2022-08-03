@@ -7,3 +7,6 @@
 [submodule "SoundPayiOSSDK/Submodule/SoundPayiOSSDK"]
 	path = SoundPayiOSSDK/Submodule/SoundPayiOSSDK
 	url = https://github.com/naeemhussainAksa/SoundPayiOSSDK.git
+[submodule "Submodule/SoundPayiOSSDK"]
+	path = Submodule/SoundPayiOSSDK
+	url = https://github.com/naeemhussainAksa/SoundPayiOSSDK.git
