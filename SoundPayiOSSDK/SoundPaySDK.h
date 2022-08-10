@@ -13,11 +13,6 @@
 
 #define NUM_BUFFERS 3
 
-@protocol SoundPaySdkDelegate <NSObject>
-- (void)didReceivedString:(NSString*)message;
-- (void)didEndSentData;
-@end
-
 typedef struct
 {
     int ggwaveId;

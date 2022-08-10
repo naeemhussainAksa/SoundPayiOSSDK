@@ -406,10 +406,13 @@ public:
     static constexpr auto kDefaultVolume               = 10;
     static constexpr auto kDefaultSoundMarkerThreshold = 3.0f;
     static constexpr auto kDefaultMarkerFrames         = 16;
-    static constexpr auto kDefaultEncodedDataOffset    = 3;
+    //static constexpr auto kDefaultEncodedDataOffset    = 3;
+    static constexpr auto kDefaultEncodedDataOffset    = 4;
     static constexpr auto kMaxSamplesPerFrame          = 1024;
-    static constexpr auto kMaxDataSize                 = 256;
-    static constexpr auto kMaxLengthVariable           = 140;
+    //static constexpr auto kMaxDataSize                 = 256;
+    //static constexpr auto kMaxLengthVariable           = 140;
+    static constexpr auto kMaxDataSize                 = 420;
+    static constexpr auto kMaxLengthVariable           = 300;
     static constexpr auto kMaxLengthFixed              = 64;
     static constexpr auto kMaxSpectrumHistory          = 4;
     static constexpr auto kMaxRecordedFrames           = 2048;

@@ -707,11 +707,14 @@ bool GGWave::init(int dataSize, const char * dataBuffer, TxProtocolId protocolId
             m_tx.dataLength = m_isFixedPayloadLength ? m_payloadLength : dataSize;
             m_tx.sendVolume = ((double)(volume))/100.0f;
 
-            m_tx.data[0] = m_tx.dataLength;
+            //m_tx.data[0] = m_tx.dataLength;
+            m_tx.data[0] = m_tx.dataLength/256;
+            m_tx.data[1] = m_tx.dataLength%256;
             for (int i = 0; i < m_tx.dataLength; ++i) {
-                m_tx.data[i + 1] = i < dataSize ? dataBuffer[i] : 0;
+                //m_tx.data[i + 1] = i < dataSize ? dataBuffer[i] : 0;
+                m_tx.data[i + 2] = i < dataSize ? dataBuffer[i] : 0;
                 if (m_isDSSEnabled) {
-                    m_tx.data[i + 1] ^= getDSSMagic(i);
+                    m_tx.data[i + 2] ^= getDSSMagic(i);
                 }
             }
 
@@ -787,13 +790,15 @@ uint32_t GGWave::encode() {
     const int totalDataFrames = m_tx.protocol.extra*((totalBytes + m_tx.protocol.bytesPerTx - 1)/m_tx.protocol.bytesPerTx)*m_tx.protocol.framesPerTx;
 
     if (m_isFixedPayloadLength == false) {
-        RS::ReedSolomon rsLength(1, m_encodedDataOffset - 1, m_workRSLength.data());
+        //RS::ReedSolomon rsLength(1, m_encodedDataOffset - 1, m_workRSLength.data());
+        RS::ReedSolomon rsLength(2, m_encodedDataOffset - 2, m_workRSLength.data());
         rsLength.Encode(m_tx.data.data(), m_dataEncoded.data());
     }
 
     // first byte of m_tx.data contains the length of the payload, so we skip it:
     RS::ReedSolomon rsData = RS::ReedSolomon(m_tx.dataLength, nECCBytesPerTx, m_workRSData.data());
-    rsData.Encode(m_tx.data.data() + 1, m_dataEncoded.data() + m_encodedDataOffset);
+    //rsData.Encode(m_tx.data.data() + 1, m_dataEncoded.data() + m_encodedDataOffset);
+    rsData.Encode(m_tx.data.data() + 2, m_dataEncoded.data() + m_encodedDataOffset);
 
     // generate tones
     {
@@ -1595,10 +1600,13 @@ void GGWave::decode_variable() {
                     }
 
                     if (itx*protocol.bytesPerTx > m_encodedDataOffset && knownLength == false) {
-                        RS::ReedSolomon rsLength(1, m_encodedDataOffset - 1, m_workRSLength.data());
-                        if ((rsLength.Decode(m_dataEncoded.data(), m_rx.data.data()) == 0) && (m_rx.data[0] > 0 && m_rx.data[0] <= 140)) {
+                        //RS::ReedSolomon rsLength(1, m_encodedDataOffset - 1, m_workRSLength.data());
+                        RS::ReedSolomon rsLength(2, m_encodedDataOffset - 2, m_workRSLength.data());
+                        //if ((rsLength.Decode(m_dataEncoded.data(), m_rx.data.data()) == 0) && (m_rx.data[0] > 0 && m_rx.data[0] <= 140)) {
+                        if (rsLength.Decode(m_dataEncoded.data(), m_rx.data.data()) == 0) {
                             knownLength = true;
-                            decodedLength = m_rx.data[0];
+                            //decodedLength = m_rx.data[0];
+                            decodedLength = m_rx.data[1] + (int(m_rx.data[0])*256);
 
                             const int nTotalBytesExpected = m_encodedDataOffset + decodedLength + ::getECCBytesForLength(decodedLength);
                             const int nTotalFramesExpected = 2*m_nMarkerFrames + ((nTotalBytesExpected + protocol.bytesPerTx - 1)/protocol.bytesPerTx)*protocol.framesPerTx;

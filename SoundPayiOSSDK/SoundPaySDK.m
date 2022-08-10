@@ -7,7 +7,7 @@
 
 #import "SoundPaySDK.h"
 #import "ggwave.h"
-#import "SoundPayiOSSDK-Swift.h"
+//#import "SoundPayiOSSDK-Swift.h"
 
 #define NUM_BYTES_PER_BUFFER 16*1024
 
@@ -29,7 +29,6 @@ void AudioOutputCallback(void * inUserData,
 
 
 @implementation SoundPaySDK
-//@synthesize delegate;
 
 - (void)setupAudioFormat:(AudioStreamBasicDescription*)format
 {
@@ -83,8 +82,6 @@ void AudioOutputCallback(void * inUserData,
         printf("GGWave playback instance initialized - instance id = %d\n", stateOut.ggwaveId);
     }
 
-    //stateInp.sDelegate = delegate;
-    //stateOut.sDelegate = delegate;
     
     return self;
 }
@@ -240,7 +237,6 @@ void AudioInputCallback(void * inUserData,
         //stateInp->labelReceived.text = [@"Received: " stringByAppendingString:[NSString stringWithFormat:@"%s", decoded]];
         NSLog(@"Data received is: %s", decoded);
         NSString *str = [NSString stringWithFormat:@"%s", decoded];
-//        [SharedDelegate.delegate didReceivedString:[NSString stringWithFormat:@"%s", decoded]];
         
         NSDictionary *dict = @{ @"sdk_title" : @"Data Received successfully",
                                 @"string_message" : str
